@@ -42,8 +42,17 @@ como nueva.
 
 ## Material fuente
 
-Las presentaciones y PDF de los que sale el contenido están en `material/`.
-La versión anterior de la web (un único HTML con React por CDN) está en
+El contenido de cada unidad sale de los apuntes de clase. Los originales **no se
+guardan en el repositorio** — no son entrada del build y pesaban casi 100 MB:
+
+- **Biología UD1** · `UD 1 Biomolécuas inorgánicas.pptx`, en la carpeta
+  `CATA/2 BACH - Biologia/` del equipo, fuera de este repositorio.
+- **Geología UD2 y UD3** · los dos PDF estuvieron versionados y se borraron en el
+  commit que menciona `material/`. Siguen recuperables del historial:
+  `git log --diff-filter=D --name-only -- material/` para encontrarlo, y
+  `git checkout <commit>~1 -- material/` para restaurarlos.
+
+La versión anterior de la web (un único HTML con React y Babel por CDN) está en
 `legacy/index-v1.html`.
 
 ---
