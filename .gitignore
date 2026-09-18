@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+.DS_Store
+*.local
+*.tsbuildinfo
+.vite
+
+# Material fuente pesado (presentaciones de clase). Se conserva en local, en
+# material/, pero no se versiona: no entra en el build y encarecería cada clon
+# y cada checkout de CI. Los PDF sí están versionados porque ya venían de antes.
+material/*.pptx

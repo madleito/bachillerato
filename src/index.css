@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+
+/* ─── Paleta y tipografías del proyecto ─── */
+@theme {
+  --color-tierra-bg: #faf6f0;
+  --color-tierra-cream: #f0e9df;
+  --color-tierra-sand: #e6ddd1;
+  --color-tierra-slate: #4a5568;
+  --color-tierra-charcoal: #2c3639;
+
+  --color-petrol: #1b4965;
+  --color-petrol-light: #2a6f97;
+  --color-petrol-dark: #143b52;
+
+  --color-terracotta: #c1666b;
+  --color-terracotta-light: #d4898d;
+  --color-terracotta-dark: #a34e52;
+
+  --color-ochre: #d4a373;
+  --color-ochre-light: #e2bf9a;
+  --color-ochre-dark: #b8854f;
+
+  --color-volcanic: #e76f51;
+  --color-volcanic-light: #f09a83;
+  --color-volcanic-dark: #d4533a;
+
+  --color-turquoise: #2a9d8f;
+  --color-turquoise-light: #52b7ab;
+  --color-turquoise-dark: #1f7a6f;
+
+  --color-verde: #417b5a;
+  --color-verde-light: #6ba483;
+  --color-verde-dark: #2e5b41;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+}
+
+/*
+  Tailwind v4 usa `currentColor` como color de borde por defecto; el marcado de
+  este proyecto se escribió para v3, donde era gris claro. Mantenemos el aspecto
+  original fijando el color de borde por defecto a la arena de la paleta.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-tierra-sand);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-tierra-bg);
+  color: var(--color-tierra-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* Indicador de pestaña activa */
+.tab-active {
+  position: relative;
+}
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-volcanic);
+  animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Transición de página */
+.page-enter {
+  animation: fadeUp 0.35s ease-out;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Barra de scroll */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ochre);
+  border-radius: 3px;
+}
+
+/* Volteo de fichas */
+.flip-perspective {
+  perspective: 1000px;
+}
+.flip-card {
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Entrada de cada ficha */
+.card-slide-in {
+  animation: cardSlide 0.3s ease-out;
+}
+@keyframes cardSlide {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .tab-active::after {
+    animation: none;
+  }
+  .flip-card {
+    transition: none;
+  }
+  .card-slide-in {
+    animation: none;
+  }
+}
