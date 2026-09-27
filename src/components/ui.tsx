@@ -23,8 +23,8 @@ export function Divider() {
 /**
  * Apunte añadido por IA.
  * Cajón visualmente diferenciado del texto principal de los apuntes de
- * Catalina. Se usa cuando se añade un ejemplo, contexto o aclaración que NO
- * está en sus apuntes originales, para que sepa siempre qué entra en el examen
+ * las alumnas. Se usa cuando se añade un ejemplo, contexto o aclaración que NO
+ * está en sus apuntes originales, para que sepan siempre qué entra en el examen
  * y qué es ayuda extra.
  */
 export function AI({ children }: { children: ReactNode }) {

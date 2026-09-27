@@ -19,7 +19,7 @@ function Creditos() {
       >
         WofferLab
       </a>{' '}
-      para Catalina Lázaro Joswig
+      para Catalina y Tatiana
     </p>
   )
 }

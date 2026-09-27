@@ -1,6 +1,6 @@
 # Bachillerato · Herramienta de estudio
 
-Web de estudio para Catalina Lázaro Joswig. Cada unidad tiene cuatro herramientas:
+Web de estudio para Catalina y Tatiana. Cada unidad tiene cuatro herramientas:
 mapa conceptual, resumen narrativo, fichas con repetición espaciada y quiz. Las
 unidades de Historia de la Filosofía tienen una quinta: textos para practicar el
 comentario.
