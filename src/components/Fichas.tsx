@@ -14,6 +14,7 @@ import {
 } from '../lib/srs'
 import type { ModoFichas } from '../lib/srs'
 import { cuando, seccionesDe } from '../lib/utils'
+import { ImagenCompacta } from './Imagen'
 import { SelectorSecciones } from './SelectorSecciones'
 
 type Fase = 'inicio' | 'estudio' | 'resumen'
@@ -315,6 +316,12 @@ export function Fichas({
         </span>
       </div>
 
+      {actual.img && (
+        <div className="card-slide-in" key={`img-${claveAnimacion}`}>
+          <ImagenCompacta src={actual.img} alt={actual.p} />
+        </div>
+      )}
+
       <div className="flip-perspective" key={claveAnimacion}>
         <button
           type="button"
@@ -351,6 +358,12 @@ export function Fichas({
           Lo sabía ✓
         </button>
       </div>
+
+      {volteada && actual.imgRespuesta && (
+        <div className="mt-5 card-slide-in">
+          <ImagenCompacta src={actual.imgRespuesta} alt={actual.r} />
+        </div>
+      )}
 
       <button
         onClick={() => setFase('inicio')}

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { ASIGNATURAS } from './contenido'
 import { Fichas } from './components/Fichas'
 import { esTab, Layout } from './components/Layout'
+import { Textos } from './components/Textos'
 import { MapaConceptual } from './components/MapaConceptual'
 import { Quiz } from './components/Quiz'
 import { SelectorAsignaturas, SelectorUnidades } from './components/Selectores'
@@ -13,7 +14,7 @@ export function App() {
 
   const asignatura = ASIGNATURAS.find(a => a.id === ruta.asignaturaId)
   const unidad = asignatura?.unidades.find(u => u.id === ruta.unidadId)
-  const tab = esTab(ruta.tab) ? ruta.tab : 'historia'
+  const tab = unidad && esTab(ruta.tab, unidad) ? ruta.tab : 'historia'
 
   // Recuerda dónde estaba para el botón de «seguir donde lo dejaste».
   useEffect(() => {
@@ -70,6 +71,9 @@ export function App() {
         <Fichas unidadId={unidad.id} deck={unidad.fichas} accent={unidad.accent} />
       )}
       {tab === 'quiz' && <Quiz unidadId={unidad.id} pool={unidad.quiz} accent={unidad.accent} />}
+      {tab === 'textos' && unidad.textos && (
+        <Textos textos={unidad.textos} accent={unidad.accent} aviso={unidad.textosAviso} />
+      )}
     </Layout>
   )
 }

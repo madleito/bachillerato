@@ -4,6 +4,7 @@ import { acento } from '../lib/colores'
 import { olvidarFallo, registrarFallo, registrarIntentoQuiz } from '../lib/progreso'
 import { useProgresoUnidad } from '../lib/useProgreso'
 import { fechaCorta, hashId, seccionesDe, shuffle } from '../lib/utils'
+import { ImagenCompacta } from './Imagen'
 import { SelectorSecciones } from './SelectorSecciones'
 
 type Fase = 'inicio' | 'jugando' | 'resultado'
@@ -391,6 +392,8 @@ export function Quiz({
           </span>
         )}
       </div>
+
+      {actual.img && <ImagenCompacta src={actual.img} alt={actual.q} />}
 
       <div className="mb-6">
         <p className="font-body text-xl md:text-2xl text-tierra-charcoal leading-relaxed">{actual.q}</p>

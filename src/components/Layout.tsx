@@ -15,8 +15,15 @@ export const TABS: Tab[] = [
   { id: 'quiz', label: 'Quiz', icon: '🎯', shortLabel: 'Quiz' },
 ]
 
-export function esTab(valor: string | undefined): valor is TabId {
-  return TABS.some(t => t.id === valor)
+/** Quinta pestaña, solo en las unidades que traen fragmentos para comentar. */
+export const TAB_TEXTOS: Tab = { id: 'textos', label: 'Textos', icon: '📜', shortLabel: 'Textos' }
+
+export function tabsDe(unidad: Unidad): Tab[] {
+  return unidad.textos && unidad.textos.length > 0 ? [...TABS, TAB_TEXTOS] : TABS
+}
+
+export function esTab(valor: string | undefined, unidad: Unidad): valor is TabId {
+  return tabsDe(unidad).some(t => t.id === valor)
 }
 
 export function Layout({
@@ -49,7 +56,7 @@ export function Layout({
             </button>
             <span className="block w-px h-5 bg-tierra-sand shrink-0" />
             <h1 className="font-display text-lg md:text-xl font-bold text-tierra-charcoal tracking-tight shrink-0">
-              {asignatura.nombre}
+              {asignatura.nombreCorto ?? asignatura.nombre}
             </h1>
             <span className="font-body text-sm text-tierra-slate hidden sm:inline truncate">
               {unidad.unidad} · {unidad.title}
@@ -60,7 +67,7 @@ export function Layout({
           </div>
 
           <nav className="flex gap-1" role="tablist">
-            {TABS.map(tab => {
+            {tabsDe(unidad).map(tab => {
               const activa = tabActiva === tab.id
               return (
                 <button

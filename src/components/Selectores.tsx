@@ -4,7 +4,7 @@ import { acento } from '../lib/colores'
 import { progresoDe } from '../lib/progreso'
 import { useProgresoUnidad, useUltimaPosicion } from '../lib/useProgreso'
 import { resumir } from '../lib/srs'
-import { TABS } from './Layout'
+import { tabsDe } from './Layout'
 import { Progreso } from './Progreso'
 
 function Creditos() {
@@ -90,7 +90,8 @@ export function SelectorAsignaturas({
               {unidadUltima.title}
             </span>
             <span className="block font-body text-sm text-white/70">
-              {asignaturaUltima.nombre} · {TABS.find(t => t.id === ultima.tab)?.label ?? 'La Historia'}
+              {asignaturaUltima.nombre} ·{' '}
+              {tabsDe(unidadUltima).find(t => t.id === ultima.tab)?.label ?? 'La Historia'}
             </span>
           </span>
           <span className="text-xl shrink-0" aria-hidden="true">→</span>
@@ -111,7 +112,7 @@ export function SelectorAsignaturas({
             <button
               key={asignatura.id}
               onClick={() => onElegir(asignatura.id)}
-              className={`group text-left bg-white border ${a.border} rounded-2xl p-6 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer relative overflow-hidden`}
+              className={`group flex flex-col justify-start text-left bg-white border ${a.border} rounded-2xl p-6 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer relative overflow-hidden`}
             >
               <span className={`absolute top-0 left-0 right-0 h-1 ${a.bar}`} />
               <div className="flex items-start justify-between gap-3 mb-2">
@@ -203,7 +204,7 @@ export function SelectorUnidades({
             <button
               key={unidad.id}
               onClick={() => onElegir(unidad.id)}
-              className={`group text-left bg-white border ${a.border} rounded-2xl p-6 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer relative overflow-hidden`}
+              className={`group flex flex-col justify-start text-left bg-white border ${a.border} rounded-2xl p-6 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer relative overflow-hidden`}
             >
               <span className={`absolute top-0 left-0 right-0 h-1 ${a.bar}`} />
               <p className={`font-body text-xs uppercase tracking-widest ${a.text} mb-2`}>
@@ -216,7 +217,7 @@ export function SelectorUnidades({
                 {unidad.description}
               </p>
               <div className="flex flex-wrap gap-2">
-                {TABS.map(t => (
+                {tabsDe(unidad).map(t => (
                   <span
                     key={t.id}
                     className={`${a.soft} ${a.text} text-xs font-body px-2.5 py-1 rounded-full flex items-center gap-1`}
