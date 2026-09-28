@@ -5,6 +5,7 @@ import { unidad as geoU3 } from './geologia/u3-procesos-externos'
 import { unidad as bioU1 } from './biologia/u1-biomoleculas-inorganicas'
 import { unidad as bioU2 } from './biologia/u2-glucidos'
 import { unidad as filoPlaton } from './filosofia/u1-platon'
+import { unidad as hisT1 } from './historia/t1-prehistoria-visigodos'
 
 export const ASIGNATURAS: Asignatura[] = [
   {
@@ -16,6 +17,18 @@ export const ASIGNATURAS: Asignatura[] = [
     icono: '🧬',
     accent: 'verde',
     unidades: [bioU1, bioU2],
+  },
+  {
+    id: 'historia',
+    nombre: 'Historia de España',
+    nombreCorto: 'Historia',
+    curso: '2º Bachillerato',
+    descripcion:
+      'De la Prehistoria a la España actual: los procesos, las fechas y los protagonistas que hay que dominar para la EvAU.',
+    icono: '🏰',
+    accent: 'volcanic',
+    // Se irán añadiendo temas; cada uno es un archivo en ./historia
+    unidades: [hisT1],
   },
   {
     id: 'filosofia',

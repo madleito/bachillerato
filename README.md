@@ -12,6 +12,7 @@ comentario.
 | Asignatura | Curso | Unidades |
 |---|---|---|
 | Biología | 2º Bachillerato | 1. Biomoléculas inorgánicas · 2. Los glúcidos |
+| Historia de España | 2º Bachillerato | Tema 1. De la Prehistoria a la monarquía visigoda |
 | Historia de la Filosofía | 2º Bachillerato | Platón |
 | Geología | 1º Bachillerato | 1. Estructura de la Tierra · 2. Procesos internos · 3. Procesos externos |
 
@@ -39,6 +40,7 @@ sin conexión. Se publica solo en GitHub Pages al empujar a `main`.
    los nombres de sección deben coincidir entre `fichas` y `quiz`.
 3. Añade la unidad al array correspondiente en `src/contenido/index.ts`.
 4. Opcional: `textos` (fragmentos para comentario) activa la pestaña «Textos».
+5. En Historia, `<Cronologia>` pinta la línea del tiempo del tema dentro de «La Historia».
 
 ### Imágenes
 
@@ -69,6 +71,7 @@ guardan en el repositorio** — no son entrada del build y pesaban casi 100 MB:
 - **Biología UD1** · `UD 1 Biomolécuas inorgánicas.pptx`, en la carpeta
   `CATA/2 BACH - Biologia/` del equipo, fuera de este repositorio.
 - **Biología UD2** · `UD 2 Los glúcidos.pptx`, en la misma carpeta.
+- **Historia de España, Tema 1** · `HISTORIA TEMA 1.pdf`, en la misma carpeta.
 - **Filosofía, Platón** · `Platón Apuntes 2026-27.pdf`, en la misma carpeta. Los
   fragmentos de la pestaña «Textos» no vienen en los apuntes: son traducciones
   propias de los pasajes clásicos, marcadas como tales en la propia web.
